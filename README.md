@@ -1,1 +1,7 @@
-# jjing-liang.github.io
+---
+title: "About"
+permalink: "/about/"
+layout: page
+---
+
+GOOD CODE NICE TRY
