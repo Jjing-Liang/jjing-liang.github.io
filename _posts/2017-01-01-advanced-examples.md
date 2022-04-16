@@ -1,14 +1,12 @@
 ---
 title:  "The Patchers in Python"
 layout: post
-categories: media
----
-
-## 什么是Patch
-
 ---
 
 Mock在单元测试中随处可见。在Python的单元测试中，常见的有unittest和pytest。unittest对应的Mock库是unittest.mock，pytest对应的是pytest-mock。这两个Mock库中都存在Patchers，Patchers与Mock密不可分
+
+
+## 什么是Patch
 
 Pytest-mock本质上与unittest.mock是相同的API，因此这里我们先从unittest.mock说起
 
