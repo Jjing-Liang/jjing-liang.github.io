@@ -12,13 +12,13 @@ Pytest-mock本质上与unittest.mock是相同的API，因此这里我们先从un
 
 ### A simple example
 
-![图1. Example code](https://lh6.googleusercontent.com/Gm-L7UhOQmRbqnlAeKwRV7Vgx8SAdM8gAFJ2nEJREbkL3nmuNsB9YROIYEIqR2G8-GEB-wXXbVnxYO1NsP4Z0zokzvNQ0TnqkygVaJVrtuBKiNCIfsEl5Tq1Hub-Lq9omrUaV8W3)
+<img src="https://lh6.googleusercontent.com/Gm-L7UhOQmRbqnlAeKwRV7Vgx8SAdM8gAFJ2nEJREbkL3nmuNsB9YROIYEIqR2G8-GEB-wXXbVnxYO1NsP4Z0zokzvNQ0TnqkygVaJVrtuBKiNCIfsEl5Tq1Hub-Lq9omrUaV8W3" alt="图1. Example code" width="300"/>
 
 图1. Example code
 
 当测试目标是`BubbleTeaShop`的`make_milk_tea`方法，但又不想实际调用`Kitchen`的`make_milk_tea`方法时，就可以使用下图中的`@patch()`方法对class进行patch，并使用`instance.make_milk_tea.return_value`指定了方法的返回值
 
-![图2. 使用patch进行mock](https://lh3.googleusercontent.com/RkBu9Zvaaqw7U1gnx4Y6WhCLWMElTzJ5BKaS8gX9KeuwekO1iVtE4MEeeSm_IB1aSmZW3y2UqRBLrrzW7CE_3XoaRXpuyyN--WKXq7N_PIw0B73F4RFKEMXlBTqx7eR33TC5nAfh)
+<img src="https://lh3.googleusercontent.com/RkBu9Zvaaqw7U1gnx4Y6WhCLWMElTzJ5BKaS8gX9KeuwekO1iVtE4MEeeSm_IB1aSmZW3y2UqRBLrrzW7CE_3XoaRXpuyyN--WKXq7N_PIw0B73F4RFKEMXlBTqx7eR33TC5nAfh" alt="图2. 使用patch进行mock" width="300"/>
 
 图2. 使用patch进行mock
 
