@@ -1,12 +1,22 @@
 ---
-title:  "The Patchers in Python"
+title:  "Learn YAML in Y minutes"
 layout: post
+categories: language
 ---
 
-```
+引用[官网](https://yaml.org/)定义:
+> YAML is a human-friendly data serialization language for all programming languages.
+
+
+```yaml
 # 只有单行注释
-# ---表示一份内容的开始
----
+
+---  # ---表示一份内容的开始
+
+################
+# 类型     #
+################
+
 string-example: cake
 int-example: 666
 float-example: 0.5
@@ -24,7 +34,10 @@ iso8601-date-example: 2001-12-14t21:59:43.10-05:00
 type-trans-example: !!float "666"
 
 
-# 通过anchor锚点简化
+################
+# 锚点     #
+################
+
 setting-anchor-example: &number-category # 设置锚点
   one: 1
   two: 2
@@ -34,6 +47,10 @@ extending-anchor-example: # 合并锚点
   <<: *number-category
   four: 4
 
+
+################
+# 多行内容     #
+################
 
 # literal-style表达多行内容: 文本中的换行都被保留，即cake与下一句之间有换行
 literal-style-example: |
@@ -49,7 +66,10 @@ folded-style-example: >
   They can be written right in a web page’s HTML and run automatically as the page loads.
 
 
-# Mapping
+################
+# Mapping     #
+################
+
 mapping-example-1:
   programming-languages:
     javascript: JavaScript often abbreviated JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS
@@ -65,7 +85,10 @@ mapping-example-2:
   }
   
 
-# 数组
+################
+# 数组     #
+################
+
 array-example-option-1:
   - javascript
   - java
@@ -79,6 +102,5 @@ two-dimensional-array-example:
   - - Java Introduction
     - Java Variables
     - Java Operators
-...
-# ...表示一份内容的结束（可选）
+...  # ...表示一份内容的结束（可选）
 ```
