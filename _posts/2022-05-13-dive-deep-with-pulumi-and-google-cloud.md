@@ -9,6 +9,7 @@ layout: post
 - 使用Google KMS加密secret，不使用默认的Pulumi service
 - 利用`Pulumi Stack`快速部署多个环境
 
+
 ## Pulumi简介
 
 直接引用[官方介绍](https://www.pulumi.com/docs/intro/concepts/)：
@@ -26,9 +27,8 @@ Pulumi特性较多，2022年5月刚刚宣布支持Java，这里列出部分特�
 
 官方也提供了与[常见的IaS工具](https://www.pulumi.com/docs/intro/vs/)（例如[Terraform](https://www.pulumi.com/docs/intro/vs/terraform/)）详细对比。
 
-![Pulumi evolution](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/08b66fa5-4218-400b-9e64-23c5c01dac6f/Untitled.png)
+![Pulumi evolution](https://www.pulumi.com/blog/pulumi-universal-iac/pulumi-evolution.png)
 
-## 
 
 ## Using a self-managed backend store metadata
 
@@ -38,7 +38,7 @@ Pulumi特性较多，2022年5月刚刚宣布支持Java，这里列出部分特�
 
 ### Step 1: 在Google Cloud Storage（GCS）创建bucket及folder
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/52bd1a6d-87b1-4ee5-ad1d-2b3b9076be8e/Untitled.png)
+![GCS](/assets/img/gcs.png)
 
 ### Step 2: 运行`pulumi login`
 
@@ -49,7 +49,7 @@ pulumi login gs://<my-pulumi-bucket-or-folder>
 
 通过上面两步配置，metadata就会存储在GCS中，此时如果运行`pulumi up`，GCS中就会出现`.pulumi/`的folder，如下图所示。`.pulumi`主要包含三个文件夹：backups，history，stacks。
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/001ad84a-9315-4d72-ba9b-0f9cd985b570/Untitled.png)
+![GCS folder](/assets/img/gcs-pulumi.png)
 
 ```bash
 
@@ -76,7 +76,7 @@ pulumi login gs://<my-pulumi-bucket-or-folder>
 
 Stack常见会按照开发阶段分类（例如dev，staging，prod等）或者特性分支分类（例如feature-x等），关于stack的具体细节可以参见[Pulumi Stacks](https://www.pulumi.com/docs/intro/concepts/stack/)。
 
-![Pulumi get started terminal screenshot](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e7309dd9-9852-4b60-80a4-f92c606f0f5d/Untitled.png)
+![Pulumi get started terminal screenshot](/assets/img/console-pulumi-new-stack.png)
 
 针对不同stack所配置的环境变量或者secret会以key-value的形式存储在`Pulumi.<stack-name>.yaml`。
 
@@ -86,7 +86,7 @@ Stack常见会按照开发阶段分类（例如dev，staging，prod等）或者�
 
 这里使用GCP的Key management的对称密钥，创建对应的密钥环和密钥即可，其他配置可以参考[GCP key management文档](https://cloud.google.com/kms/docs/creating-keys)。需要注意，GCP目前不支持重命名或者删除密钥环及密钥。
 
-![gcp create kms key](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/230406f9-bc64-4883-8980-6eeb61e8ff9d/Untitled.png)
+![gcp create kms key](/assets/img/gcp-kms-create-key.png)
 
 ### Step 2: 指定secret provider
 
@@ -101,7 +101,7 @@ pulumi stack init qa --secrets-provider="gcpkms://projects/my-gcp-project/locati
 
 初始化后会在Pulumi.qa.yaml中自动生成两行配置(encryptedKey为非真实key，仅用于举例)
 
-![pulumi generated key](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/68c9684b-481b-4db5-b31b-5a53e56d3dac/Untitled.png)
+![pulumi generated key](/assets/img/vscode-kms-provider.jpg)
 
 ### Step 3: 设置secret
 
@@ -109,13 +109,13 @@ pulumi stack init qa --secrets-provider="gcpkms://projects/my-gcp-project/locati
 pulumi config set --secret db-password mockPwd
 ```
 
-![pulumi secret](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a29d0067-f7c6-43eb-8de2-2781a857ecbc/Untitled.png)
+![pulumi secret](/assets/img/vscode-kms-secret.jpg)
 
 ## Multiple environment
 
 如果一个服务存在多个环境，上文也提到可以用`stack`进行划分和部署，所有在pulumi中定义和变更的基础架构资源都记录在对应的`stack instance`中。这种划分模式适用于多个环境之间差异性较小的情况，使用同一份Infrastructure的代码可以快速部署多个环境，可复用性较强。Kief Morri在其所写的**[Infrastructure as Code, 2nd Edition](https://www.oreilly.com/library/view/infrastructure-as-code/9781098114664/)**中也有提及到。
 
-![IaC structring stacks](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4571fe20-d181-4c1e-9a58-843fc97406ce/Untitled.png)
+![IaC structring stacks](/assets/img/book-iac-env.png)
 
 Pulumi提供了全面的command line interface（CLI），以下是在stack中较为常用的命令：
 
