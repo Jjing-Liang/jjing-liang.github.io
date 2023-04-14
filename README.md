@@ -4,4 +4,4 @@ permalink: "/about/"
 layout: page
 ---
 
-GOOD CODE NICE TRY
+NICE TRY
