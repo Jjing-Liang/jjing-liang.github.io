@@ -37,6 +37,8 @@ The team worked on the carbon reduction initiative in parallel with their daily 
 
 How did we accomplish this? What was critical was something we call a sustainable cycle (monitoring - analyzing - optimizing) that helps manage costs and carbon emissions collaboratively within and across teams. Let’s explore how it works in more detail.
 
+![Sustainability cycle](/assets/img/responsible-cloud-usage-cycle.png)
+
 Continuous monitoring and improvement of cloud service costs and carbon emissions are essential for sustainability. To streamline this process, companies can use carbon tools provided by cloud service providers or use the [Cloud Carbon Footprint](https://www.cloudcarbonfootprint.org/) open-source tool. Teams can then use data visualization to quickly understand their cloud service usage and promote optimization measures.
 
 The next step is to analyze the data and drill down by identifying overall trends in cloud service usage and any peaks or abnormalities. Teams can ask critical questions such as whether the chosen computing service is appropriate, whether cloud services are underutilized, and whether there are zombie workloads. The [Green Software Foundation](https://greensoftware.foundation/) (GSF) has also released green software [principles](https://learn.greensoftware.foundation/introduction) and [patterns](https://patterns.greensoftware.foundation/), providing practical recommendations for software practitioners to optimize cloud services.
