@@ -4,4 +4,4 @@ permalink: "/about/"
 layout: page
 ---
 
-NICE TRY
+Try it out
